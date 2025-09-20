@@ -1,7 +1,25 @@
+# Task-1
+# 📄 Lecture Summary: Chip Design Workflow
+The lecture explained how a chip is designed step by step. The process starts with **writing the specifications**, which is basically describing what the chip should do.\
+At this stage, the design is usually written in **C language**, and a **testbench** is also prepared in C to check whether the functionality works as expected.
+
+*Once specifications are clear, the design moves into **RTL coding (Verilog)** -> making a soft copy of the hardware.
+* Different blocks like **processor** and **peripherals** are described.
+* The design is then **synthesized** into a gate-level netlist, and pre-designed blocks such as macros and **analog IPs** are added.
+* After this, everything is integrated into a single SoC with floorplanning, placement, and routing to prepare the chip for fabrication.
+* The final output is a chip layout (GDSII) that can be manufactured.
+
+💡 **Applications**: Smartwatches, Arduino boards, TV panels, AC appliances, and more.
+
+And also, here's the difference between **Microprocessor** and **Microcontroller**
+- **Microprocessor** → Just the CPU (needs external memory + peripherals).
+- **Microcontroller** → All-in-one chip with CPU, memory, and peripherals built in.
+
+# Task-2
 # 🔧 Installation Guide
 This document lists the installation steps for all the tools required in the **VSD RISC-V SoC Tapeout Program**.
 
-# System Requirements
+# 👩🏽‍💻 System Requirements
 * OS: Ubuntu 20.04+
 * RAM: 6 GB
 * Disk: 50 GB
@@ -17,32 +35,37 @@ This document lists the installation steps for all the tools required in the **V
 
 # Installation Steps
 ## 1. Yosys (Synthesis Tool)
+Converts Verilog RTL into a gate-level netlist.
+## step 1: 
 ```bash
  sudo apt-get update
 ```
 ![WhatsApp Image 2025-09-20 at 17 23 46_8e1c1372](https://github.com/user-attachments/assets/aca8fefc-721f-4938-b392-bb7ea7a6c498)
-<img width="714" height="435" alt="image" src="https://github.com/user-attachments/assets/ac3cbd63-885e-4d57-b90c-c0ce1b33583b" />
 
+## step 2:
 ```bash
 sudo apt install git
 ```
 <img width="724" height="370" alt="image" src="https://github.com/user-attachments/assets/5042766c-4fc3-4447-864e-808d20983ffe" />
 
+## step 3:
 ```bash
  git clone https://github.com/YosysHQ/yosys.git
 ```
 <img width="724" height="175" alt="image" src="https://github.com/user-attachments/assets/640f2125-440f-4f2c-ab44-d64be863eb8f" />
 
+## step 4:
 ```bash
 cd yosys
 ```
-<img width="360" height="37" alt="image" src="https://github.com/user-attachments/assets/a9b14fec-2577-4276-aa70-cc5ca9e2029d" />
 
+## step 5:
 ```bash
  sudo apt install make
 ```
 <img width="677" height="133" alt="image" src="https://github.com/user-attachments/assets/0cedd055-8352-4284-a6c6-b3a4a8611706" />
 
+## step 6:
 ```bash
  sudo apt-get install build-essential clang bison flex \ 
 libreadline-dev gawk tcl-dev libffi-dev git \ 
@@ -55,28 +78,18 @@ If you see `E: Unable to locate package` for `libreadline-dev`, `libboost-python
 sudo apt install libreadline-dev
 ```
 <img width="718" height="487" alt="image" src="https://github.com/user-attachments/assets/e68ae7b3-e127-4dd7-97d1-e74cbdea14e4" />
-<img width="718" height="436" alt="image" src="https://github.com/user-attachments/assets/70968f68-803b-447e-a45d-f40998eb6a14" />
 
 ```bash
 sudo apt install graphviz
 ```
 <img width="718" height="350" alt="image" src="https://github.com/user-attachments/assets/a5c525b4-4350-46ec-a2f8-c451a7ef7439" />
-<img width="718" height="472" alt="image" src="https://github.com/user-attachments/assets/f170452f-a010-4343-98af-8fba25c8b2ae" />
 
 ```bash
 sudo apt install libboost-python-dev
 ```
 <img width="718" height="487" alt="image" src="https://github.com/user-attachments/assets/b94e9a6a-e2fd-44b8-a113-a34fcc9c9c33" />
-<img width="718" height="471" alt="image" src="https://github.com/user-attachments/assets/445e5833-2cc5-4404-9820-7f0ae1c9fa45" />
 
-Install `pkg-config` depending on your Linux distro:
-```bash
-sudo apt install pkg-config
-```
-<img width="714" height="435" alt="image" src="https://github.com/user-attachments/assets/b07c1d50-55cb-4328-b21f-8d7dd83e00a1" />
-
-<img width="714" height="435" alt="image" src="https://github.com/user-attachments/assets/2ea4ce4a-df79-4042-8a81-1761346f273e" />
-
+## step 7:
 ```bash
 make config-gcc
 ```
@@ -84,57 +97,70 @@ make config-gcc
 <img width="714" height="489" alt="image" src="https://github.com/user-attachments/assets/f1de2e0c-58bd-4360-8ece-f1c5255bf49b" />
 <img width="714" height="489" alt="image" src="https://github.com/user-attachments/assets/3d40d077-6693-46f6-925a-fdad39767e8c" /> 
 
-Initialize and update all submodules:
-```bash
- git submodule update --init --recursive
-```
-<img width="714" height="174" alt="image" src="https://github.com/user-attachments/assets/5762cc42-054c-4c2c-b2ea-54d4dbeda31b" />
-
+## step 8:
 ```bash
 make -j$(nproc)
 ```
+<img width="712" height="471" alt="image" src="https://github.com/user-attachments/assets/9bdaaa73-d783-4001-ae82-df14011212cb" />
 <img width="727" height="466" alt="image" src="https://github.com/user-attachments/assets/58c76387-403a-41d8-911f-7622fbdbe582" />
 <img width="727" height="501" alt="image" src="https://github.com/user-attachments/assets/f732668b-a643-4a9d-8023-49151c61eaca" />
 <img width="420" height="91" alt="image" src="https://github.com/user-attachments/assets/0794565e-48a0-4b6d-86a4-0da5dd204dab" />
 
+## step 9:
 ```bash
  sudo make install
 ```
 <img width="727" height="220" alt="image" src="https://github.com/user-attachments/assets/cfd444f2-2d5f-4ff5-9967-1ed47ec8d036" />
 
-verify
+## Verify
 ```bash
 yosys -V
 ```
 <img width="727" height="45" alt="image" src="https://github.com/user-attachments/assets/869efe94-fa4d-479f-a2ab-5eb3b6381e63" />
+<img width="702" height="195" alt="image" src="https://github.com/user-attachments/assets/33fa004a-7ee8-4009-828d-b9f252854865" />
+
 
 ## 2. Icarus Verilog (Simulation)
+Runs and verifies Verilog code.
+## step 1:
 ```bash
 sudo apt-get update
 ```
 <img width="713" height="507" alt="image" src="https://github.com/user-attachments/assets/80ad2b40-359c-4e1d-b230-f211ee34ff02" />
 <img width="713" height="507" alt="image" src="https://github.com/user-attachments/assets/762a8fcc-37bf-46f9-9902-b68151ea9d5a" />
 
+## step 2:
 ```bash
 sudo apt-get install iverilog
 ```
 <img width="713" height="372" alt="image" src="https://github.com/user-attachments/assets/dd7ee0a2-45a3-4d36-ac10-bd4838e2f0e4" />
 
+## Verify
+<img width="702" height="227" alt="image" src="https://github.com/user-attachments/assets/a9627ded-294b-41e5-ab7e-5f836be954c2" />
+
 ## 3. GTKWave (Waveform Viewer)
+Displays simulation results as waveforms.
+## step 1:
 ```bash
 sudo apt-get update
 ```
 <img width="713" height="507" alt="image" src="https://github.com/user-attachments/assets/80ad2b40-359c-4e1d-b230-f211ee34ff02" />
 <img width="713" height="507" alt="image" src="https://github.com/user-attachments/assets/762a8fcc-37bf-46f9-9902-b68151ea9d5a" />
 
+## step 2:
 ```bash
 sudo apt install gtkwave
 ```
 <img width="716" height="510" alt="image" src="https://github.com/user-attachments/assets/296336c5-34bb-44b4-9d42-397afdcd0ed2" />
 <img width="716" height="478" alt="image" src="https://github.com/user-attachments/assets/a51bf255-4e30-4557-b92c-952155d0f2bb" />
 
+## Verify 
+<img width="719" height="158" alt="image" src="https://github.com/user-attachments/assets/45fa76c4-89fc-42e1-a950-324859a70b00" />
+<img width="719" height="559" alt="image" src="https://github.com/user-attachments/assets/0ee42e0b-a775-4128-ac78-bda4d7f65396" />
+
+
 ## 4. Ngspice (Analog Simulation)
- Download Ngspice Source
+ ## step 1: Download Ngspice Source
  ```bash
 wget -O ngspice-45.2.tar.gz https://sourceforge.net/projects/ngspice/files/ng-spice-rework/45.2/ngspice-45.2.tar.gz/download
 ```
@@ -268,5 +294,3 @@ echo "deb [arch=amd64 signed-by=/usr/share/keyrings/docker-archive-keyring.gpg] 
 <img width="715" height="88" alt="image" src="https://github.com/user-attachments/assets/51dccc85-a8a8-456b-860c-166d3b81f0c4" />
 <img width="715" height="88" alt="image" src="https://github.com/user-attachments/assets/b62c6354-a647-4126-9592-9caec7809a10" />
 
-Install Docker
-```bash
