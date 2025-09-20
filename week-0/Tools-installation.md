@@ -242,3 +242,31 @@ sudo make install
 <img width="717" height="440" alt="image" src="https://github.com/user-attachments/assets/e387b32a-f813-4d08-a6fc-995f05d22c13" />
 
 # 6. OpenLANE (PDK + Flow)
+```bash
+sudo apt-get update 
+sudo apt-get upgrade
+```
+<img width="691" height="499" alt="image" src="https://github.com/user-attachments/assets/7ad39ea3-827e-45f9-bcc2-55713c28ef89" />
+<img width="691" height="499" alt="image" src="https://github.com/user-attachments/assets/1a007d95-d844-4493-919b-0c089d89c5f0" />
+
+```bash
+sudo apt install -y build-essential python3 python3-venv python3-pip make git
+```
+<img width="715" height="499" alt="image" src="https://github.com/user-attachments/assets/5e6671e3-18e9-4f6a-9145-688b059e1f2d" />
+<img width="715" height="499" alt="image" src="https://github.com/user-attachments/assets/d0ab67c3-8020-4038-a283-e86b617dbd68" />
+
+```bash
+sudo apt install apt-transport-https ca-certificates curl software-properties-common
+```
+<img width="715" height="473" alt="image" src="https://github.com/user-attachments/assets/a585a58d-fdb6-4fde-bb99-315ecdb60fde" />
+<img width="715" height="473" alt="image" src="https://github.com/user-attachments/assets/2a0e58af-5f84-439a-bc5b-4a02fc4951a2" />
+
+```bash
+curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmor -o /usr/share/keyrings/docker-archive-keyring.gpg
+echo "deb [arch=amd64 signed-by=/usr/share/keyrings/docker-archive-keyring.gpg] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable" | sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
+```
+<img width="715" height="88" alt="image" src="https://github.com/user-attachments/assets/51dccc85-a8a8-456b-860c-166d3b81f0c4" />
+<img width="715" height="88" alt="image" src="https://github.com/user-attachments/assets/b62c6354-a647-4126-9592-9caec7809a10" />
+
+Install Docker
+```bash
