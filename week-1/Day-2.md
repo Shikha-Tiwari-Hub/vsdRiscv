@@ -69,10 +69,13 @@ flatten
 ```bash
 show -format png  multiple_modules
 ```
+<img width="500" height="118" alt="image" src="https://github.com/user-attachments/assets/28c3b891-bcfc-4c0e-9769-abd388c00f02" />
+
 *Write Netlist File*
 ```bash
 write_verilog -noattr multiple_modules_flat.v
 ```
+<img width="721" height="530" alt="image" src="https://github.com/user-attachments/assets/f2da5853-9d01-4a53-a175-eb5cec0ce933" />
 
 # 3. Various Flop Coding Styles and Optimization
 ## 👉🏼 Asynchronous Flip Flop
@@ -87,6 +90,8 @@ iverilog dff_asyncres.v tb_dff_asyncres.v
 ```bash
 gtkwave  ./tb_dff_asyncres.vcd
 ```
+<img width="500" height="500" alt="image" src="https://github.com/user-attachments/assets/05f969ec-4a6c-4aac-9a3d-bfb9b13debae" />
+
 *Next is Asynchronous Set*
 ```bash
 iverilog dff_async_set.v tb_dff_async_set.v
@@ -94,6 +99,44 @@ iverilog dff_async_set.v tb_dff_async_set.v
 ```
 ```bash
 gtkwave  ./tb_dff_async_set.vcd
+```
+<img width="500" height="500" alt="image" src="https://github.com/user-attachments/assets/010c5800-14d9-4509-a9af-445a8785b4b5" />
+
+## 👩🏽‍💻 Synthesis in Yosys
+```bash
+read_liberty -lib ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib
+read_verilog dff_asyncres.v
+synth -top dff_asyncres
+```
+*we have to point same library cells (only for dffs)*
+```bash
+dfflibmap -liberty ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib
+```
+<img width="500" height="500" alt="image" src="https://github.com/user-attachments/assets/26f64e0a-d6dc-49ff-8b11-29d17add34e5" />
+
+*Standard Synthesis*
+```bash
+abc -liberty ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib
+```
+```bash
+show -format png  dff_asyncres
+```
+*Next is Asynchronous Set*
+```bash
+read_verilog dff_async_set.v
+```
+*we have to point same library cells (only for dffs)*
+```bash
+dfflibmap -liberty ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib
+```
+<img width="695" height="511" alt="image" src="https://github.com/user-attachments/assets/276e9a99-d40c-4605-adf3-9533f8c9580e" />
+
+*Standard Synthesis*
+```bash
+abc -liberty ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib
+```
+```bash
+show -format png dff_async_set
 ```
 
 ## 👉🏼 Synchronous Flip Flop
@@ -104,3 +147,44 @@ iverilog dff_syncres.v tb_dff_syncres.v
 ```bash
 gtkwave  ./tb_dff_syncres.vcd
 ```
+<img width="500" height="500" alt="image" src="https://github.com/user-attachments/assets/8fe3feb4-7bcd-408d-b568-783207f0a982" />
+
+## 👩🏽‍💻 Synthesis in Yosys
+```bash
+read_liberty -lib ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib
+read_verilog dff_syncres.v
+synth -top dff_syncres
+```
+*we have to point same library cells (only for dffs)*
+```bash
+dfflibmap -liberty ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib
+```
+<img width="702" height="467" alt="image" src="https://github.com/user-attachments/assets/79adcb46-4bac-45c5-8fe6-9dc57cc98de9" />
+
+*Standard Synthesis*
+```bash
+abc -liberty ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib
+```
+```bash
+show -format png dff_syncres
+```
+
+##  Interesting Optimisations
+```bash
+read_liberty -lib ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib
+read_verilog mult_2.v
+synth -top mult_2
+abc -liberty ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib
+show -format png mult_2
+write_verilog -noattr mul2_net.v
+```
+*for another verilog files*
+```bash
+read_liberty -lib ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib
+read_verilog mult_8.v
+synth -top mult_8
+abc -liberty ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib
+show
+write_verilog -noattr mul8_net.v
+```
+
