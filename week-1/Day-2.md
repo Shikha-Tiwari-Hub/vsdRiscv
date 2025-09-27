@@ -1,5 +1,6 @@
 # Day 2: Timing libs, Hierarchial Vs Flat Synthesis and Efficient Flop Coding Styles
 # 1. Introduction to timing.libs
+**Timing libraries** describe the **characteristics of standard cells** in a technology, used for synthesis, simulation, and timing analysis.  
 ## 👉🏼 Technology Library Analysis
 *Go to library directory*
 ```bash
@@ -41,8 +42,8 @@ read_verilog multiple_modules.v
 ```bash
 synth -top multiple_modules
 ```
-<img width="655" height="524" alt="image" src="https://github.com/user-attachments/assets/c2127a0c-a00c-43b4-9426-4628fa4d64d7" />
-<img width="655" height="524" alt="image" src="https://github.com/user-attachments/assets/35439727-5287-4d7d-9a1c-9f20cc028f96" />
+<img width="500" height="500" alt="image" src="https://github.com/user-attachments/assets/c2127a0c-a00c-43b4-9426-4628fa4d64d7" />
+<img width="500" height="500" alt="image" src="https://github.com/user-attachments/assets/35439727-5287-4d7d-9a1c-9f20cc028f96" />
 
 *Convert RTL file to Gate level*
 ```bash
@@ -52,13 +53,13 @@ abc -liberty ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib
 ```bash
 show -format png  multiple_modules
 ```
-<img width="694" height="157" alt="image" src="https://github.com/user-attachments/assets/e53e4569-157e-46b1-9063-d46156b35c6e" />
+<img width="500" height="157" alt="image" src="https://github.com/user-attachments/assets/e53e4569-157e-46b1-9063-d46156b35c6e" />
 
 *Write Netlist File*
 ```bash
 write_verilog -noattr multiple_modules_hier_netlist.v
 ```
-<img width="694" height="534" alt="image" src="https://github.com/user-attachments/assets/7f37f70c-e19c-47b7-a0de-3263b2221891" />
+<img width="500" height="500" alt="image" src="https://github.com/user-attachments/assets/7f37f70c-e19c-47b7-a0de-3263b2221891" />
 
 ## 👉🏼 Flat Synthesis
 *Again Invoke yosys and follow same process till gate level*
@@ -75,7 +76,7 @@ show -format png  multiple_modules
 ```bash
 write_verilog -noattr multiple_modules_flat.v
 ```
-<img width="721" height="530" alt="image" src="https://github.com/user-attachments/assets/f2da5853-9d01-4a53-a175-eb5cec0ce933" />
+<img width="500" height="500" alt="image" src="https://github.com/user-attachments/assets/f2da5853-9d01-4a53-a175-eb5cec0ce933" />
 
 # 3. Various Flop Coding Styles and Optimization
 ## 👉🏼 Asynchronous Flip Flop
@@ -129,7 +130,7 @@ read_verilog dff_async_set.v
 ```bash
 dfflibmap -liberty ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib
 ```
-<img width="695" height="511" alt="image" src="https://github.com/user-attachments/assets/276e9a99-d40c-4605-adf3-9533f8c9580e" />
+<img width="500" height="500" alt="image" src="https://github.com/user-attachments/assets/276e9a99-d40c-4605-adf3-9533f8c9580e" />
 
 *Standard Synthesis*
 ```bash
@@ -159,7 +160,7 @@ synth -top dff_syncres
 ```bash
 dfflibmap -liberty ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib
 ```
-<img width="702" height="467" alt="image" src="https://github.com/user-attachments/assets/79adcb46-4bac-45c5-8fe6-9dc57cc98de9" />
+<img width="500" height="467" alt="image" src="https://github.com/user-attachments/assets/79adcb46-4bac-45c5-8fe6-9dc57cc98de9" />
 
 *Standard Synthesis*
 ```bash
@@ -178,13 +179,23 @@ abc -liberty ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib
 show -format png mult_2
 write_verilog -noattr mul2_net.v
 ```
+**output**\
+<img width="392" height="163" alt="image" src="https://github.com/user-attachments/assets/bf3a0968-0b7e-407d-aa60-0700059bb5f7" />
+
 *for another verilog files*
 ```bash
 read_liberty -lib ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib
 read_verilog mult_8.v
 synth -top mult_8
 abc -liberty ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib
-show
+show -format png mult_8
 write_verilog -noattr mul8_net.v
 ```
+**output**\
+<img width="392" height="163" alt="image" src="https://github.com/user-attachments/assets/bf31a865-c072-4676-880c-16eca6404c8a" />
+
+
+<p align="center">
+  🔹 End of Lab 🔹
+</p>
 
