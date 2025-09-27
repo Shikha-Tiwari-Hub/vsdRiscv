@@ -49,7 +49,7 @@ show -format png ternary_operator_mux
 ```bash
 iverilog ../my_lib/verilog_model/primitives.v ../my_lib/verilog_model/sky130_fd_sc_hd.v ternary_operator_mux_net.v tb_ternary_operator_mux.v
 ./a.out
-gtkwave  tb_ternary_operator_mux.v
+gtkwave  tb_ternary_operator_mux.vcd
 ```
 <img width="500" height="500" alt="image" src="https://github.com/user-attachments/assets/bc3e887f-2ff5-4478-97e3-21656eeae1b3" />
 
