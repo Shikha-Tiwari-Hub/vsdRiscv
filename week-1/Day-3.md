@@ -5,7 +5,7 @@ Optimization is the process of finding the **best solution** to a problem from a
 ## 👉🏼 Combinational Logic Optimisations
 *Go to library directory*
 ```bash
-cd vlsi/sky130RTLDesignAndSynthesisWorkshop/lib
+cd vlsi/sky130RTLDesignAndSynthesisWorkshop/verilog_files
 ```
 *Invoke Yosys*
 ```bash
@@ -15,14 +15,19 @@ read_verilog opt_check.v
 opt_clean -purge
 synth -top opt_check
 abc -liberty ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib
-show
+show -format png opt_check
 ```
+
+
 *Therefore we can do same as for other opt_check3*
+
+![Uploading image.png…]()
+
 
 ## 👉🏼 Sequential Logic Optimisations
 *Go to library directory*
 ```bash
-cd vlsi/sky130RTLDesignAndSynthesisWorkshop/lib
+cd vlsi/sky130RTLDesignAndSynthesisWorkshop/verilog_files
 ```
 ```bash
 iverilog dff_const1.v tb_dff_const1.v
