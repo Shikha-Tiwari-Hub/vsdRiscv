@@ -141,3 +141,7 @@ In BabySoC, functional modelling helps you verify whether reset, clocking, and m
 ## 5. Summary
 By understanding SoC fundamentals, we gain both theoretical insights into how real chips function.\
 BabySoC provides the perfect learning platform to bridge the gap between concepts and hands-on design flow in SoC development.
+
+<p align="center">
+  🔹 End of Lab 🔹
+</p>
