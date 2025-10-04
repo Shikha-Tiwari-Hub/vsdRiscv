@@ -2,34 +2,34 @@
 
 # Table of Contents
 
-- [Understand the Objective](#understand-the-objective)
-- [Introduction](#introduction)
-- [Theory Conceptual Understanding](#theory-conceptual-understanding)
+- [Understand the Objective](#1️⃣-understand-the-objective)
+- [Introduction](#2️⃣-introduction)
+- [Theory Conceptual Understanding](#3️⃣-theory-conceptual-understanding)
 
-1. [What is a System-on-Chip (SoC)?](#1-what-is-a-system-on-chip-soc)
-   1.1 [How a System-on-Chip Works](#11-how-a-system-on-chip-works)
+1. [What is a System-on-Chip (SoC)?](#1-what-is-a-system-on-chip-soc)\
+   1.1 [How a System-on-Chip Works](#11-how-a-system-on-chip-works)\
    1.2 [Applications of System-on-Chip](#12-applications-of-system-on-chip)
 
-2. [Components of a typical SoC](#2-components-of-a-typical-soc)
+2. [Components of a typical SoC (CPU, memory, peripherals, interconnect)](#2-components-of-a-typical-soc)
 
-3. [Why BabySoC is a simplified model for learning SoC concepts](#3-why-babysoc-is-a-simplified-model-for-learning-soc-concepts)
-   3.1 [Core Modules of BabySoC](#31-core-modules-of-babysoc)
+3. [Why BabySoC is a simplified model for learning SoC concepts](#3-why-babysoc-is-a-simplified-model-for-learning-soc-concepts)\
+   3.1 [Core Modules of BabySoC](#31-core-modules-of-babysoc)\
    3.2 [BabySoC serves as a foundation for exploring the full SoC design flow](#32-babysoc-serves-as-a-foundation-for-exploring-the-full-soc-design-flow)
 
 4. [The Role of functional modelling before RTL and physical design stages](#4-the-role-of-functional-modelling-before-rtl-and-physical-design-stages)
 
 5. [Summary](#5-summary)
 
-# 1️. Understand the Objective
+# 1️⃣ Understand the Objective
 * To build a clear understanding of **System-on-Chip (SoC) fundamentals**
 * The goal is to understand how various **SoC components (CPU, memory, peripherals, interconnects) work together**
 
-# 2️. Introduction
+# 2️⃣ Introduction
 A **System-on-Chip (SoC)** is an integrated circuit that combines all the core components of a **computer system** - **CPU, memory, I/O peripherals, and communication interfaces** - onto a single **silicon chip**.
 This integration enables **smaller size, higher speed, lower power, and better efficiency** compared to traditional **multi-chip systems**.
 In this **task**, we **focus on understanding SoC design fundamentals** .
 
-# 3️. Theory (Conceptual Understanding) 
+# 3️⃣ Theory (Conceptual Understanding) 
 
 ## 1. What is a System-on-Chip (SoC)? 
 A **System-on-Chip (SoC)** is a single integrated circuit (IC) that combines all the essential electronic components of a complete system onto one silicon chip.\
@@ -59,7 +59,7 @@ SoCs are at the **heart of nearly every modern electronic device**. Some key app
   | **Healthcare & Embedded Systems** | Portable ECGs, Smart Sensors | Provides efficient signal processing and connectivity in compact designs.       |
 
 
-## 2. Components of a typical SoC (CPU, memory, peripherals, interconnect).
+## 2. Components of a typical SoC
 A System-on-Chip integrates multiple functional blocks into a single silicon chip. The three main components that define its operation are:
 
 **1. Processor (CPU)**: 
@@ -138,6 +138,6 @@ Key purposes of functional modelling:
 
 In BabySoC, functional modelling helps you verify whether reset, clocking, and module-level dataflow operate correctly before proceeding to synthesis and layout stages.
 
-## 💡 5. Summary
+## 5. Summary
 By understanding SoC fundamentals, we gain both theoretical insights into how real chips function.\
 BabySoC provides the perfect learning platform to bridge the gap between concepts and hands-on design flow in SoC development.
