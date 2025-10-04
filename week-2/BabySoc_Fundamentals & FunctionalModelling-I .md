@@ -1,18 +1,18 @@
 # Fundamentals and Functional Modelling Of BabySOC - I
 
 ## Table of Contents
-1. [Understand the Objective](#Understand-the-Objective)
-2. [ Introduction](#Introduction)
-3. [Theory (Conceptual Understanding)](#Theory-(Conceptual-Understanding))
-   1. [What is a System-on-Chip (SoC)? ](#WhatisaSystem-on-Chip(SoC)? )\
-      1.1 [How a System-on-Chip Works](#HowaSystem-on-ChipWorks)\
-      1.2 [Applications of System-on-Chip](#ApplicationsofSystem-on-Chip)
-   2. [Components of a typical SoC](#ComponentsofatypicalSoC)
-   3. [Why BabySoC is a simplified model for learning SoC concepts](#WhyBabySoCisasimplifiedmodelforlearningSoCconcepts)\
-      3.1 [Core Modules of BabySoC](#CoreModulesofBabySoC)\
-      3.2 [BabySoC serves as a foundation for exploring the full SoC design flow](#BabySoCflow)
-   4. [The Role of functional modelling before RTL and physical design stages](#TheRoleoffunctionalmodellingbeforeRTLandphysicaldesignstages)
-   5. [Summary](#Summary)
+1. [Understand the Objective](#understand-the-objective)
+2. [Introduction](#introduction)
+3. [Theory (Conceptual Understanding)](#theory-conceptual-understanding)
+   1. [What is a System-on-Chip (SoC)?](#what-is-a-system-on-chip-soc)
+      1.1 [How a System-on-Chip Works](#how-a-system-on-chip-works)
+      1.2 [Applications of System-on-Chip](#applications-of-system-on-chip)
+   2. [Components of a typical SoC](#components-of-a-typical-soc)
+   3. [Why BabySoC is a simplified model for learning SoC concepts](#why-babysoc-is-a-simplified-model-for-learning-soc-concepts)
+      3.1 [Core Modules of BabySoC](#core-modules-of-babysoc)
+      3.2 [BabySoC serves as a foundation for exploring the full SoC design flow](#babysoc-serves-as-a-foundation-for-exploring-the-full-soc-design-flow)
+   4. [The Role of functional modelling before RTL and physical design stages](#the-role-of-functional-modelling-before-rtl-and-physical-design-stages)
+   5. [Summary](#summary)
 
 # 1️⃣ Understand the Objective
 * To build a clear understanding of **System-on-Chip (SoC) fundamentals**
