@@ -1,4 +1,19 @@
 # Fundamentals and Functional Modelling Of BabySOC - I
+
+## Table of Contents
+1. [Understand the Objective](#Understand-the-Objective)
+2. [ Introduction](#Introduction)
+3. [Theory (Conceptual Understanding)](#Theory-(Conceptual-Understanding))
+   1. [What is a System-on-Chip (SoC)? ](#WhatisaSystem-on-Chip(SoC)? )\
+      1.1 [How a System-on-Chip Works](#HowaSystem-on-ChipWorks)\
+      1.2 [Applications of System-on-Chip](#ApplicationsofSystem-on-Chip)
+   2. [Components of a typical SoC](#ComponentsofatypicalSoC)
+   3. [Why BabySoC is a simplified model for learning SoC concepts](#WhyBabySoCisasimplifiedmodelforlearningSoCconcepts)\
+      3.1 [Core Modules of BabySoC](#CoreModulesofBabySoC)\
+      3.2 [BabySoC serves as a foundation for exploring the full SoC design flow](#BabySoCflow)
+   4. [The Role of functional modelling before RTL and physical design stages](#TheRoleoffunctionalmodellingbeforeRTLandphysicaldesignstages)
+   5. [Summary](#Summary)
+
 # 1️⃣ Understand the Objective
 * To build a clear understanding of **System-on-Chip (SoC) fundamentals**
 * The goal is to understand how various **SoC components (CPU, memory, peripherals, interconnects) work together**
@@ -64,4 +79,59 @@ the **Memory** stores it,\
 and the **Interconnect with Peripherals** moves it around and connects the chip to the outside world.\
 Together, they make the SoC a **complete, self-contained computing system** on a single chip.
 
-## 3. Why BabySoC is a simplified model for learning SoC concepts. 
+## 3. Why BabySoC is a simplified model for learning SoC concepts
+**BabySoC** is a simplified educational model of a real SoC. Think of it as a “mini lab version” of a full-fledged SoC.
+Unlike commercial SoCs like ARM Cortex or Intel chips, which have millions of transistors, complex cache hierarchies, multiple cores, and advanced peripherals, **BabySoC is small, modular, and easy to understand**.\
+* It is designed specifically for **learning and experimentation**, not for production use.
+
+   ## 3.1 Core Modules of BabySoC
+   **A. Processor Block / Controller** :
+  * Usually a small RISC (Reduced Instruction Set Computer) core.
+  * Executes instructions, performs arithmetic/logic operations.
+  * Acts as the “brain” of the SoCs
+  * Teaches how a CPU interacts with memory and peripherals.
+
+  **B. Memory Interface**:
+  * Simplified RAM or ROM for instruction and data storage.
+  * Demonstrates memory read/write operations.
+  * Shows how instructions are fetched and data is stored/retrieved.
+  * Helps in understanding address/data/control buses.
+
+  **C. Peripherals**:
+  * Small I/O modules like LEDs, switches, or counters.
+  * Can also include UART or timers in slightly advanced BabySoC versions.
+  * Helps students see how a processor communicates with the outside world.
+  * Encourages learning polling vs. interrupt-driven I/O.
+
+  **D. Clock & Reset Logic**:
+  * Clock: Synchronizes all modules.
+  * Reset: Initializes system to a known state.
+  * Shows the importance of timing, synchronization, and deterministic behavior in digital systems.
+
+  ## 3.2 BabySoC serves as a foundation for exploring the full SoC design flow
+  1. Start with basic **RTL modules**: simple CPU, memory, LED peripheral.
+  2. **Simulate** and **verify functionality**: use waveform viewers to see signals.
+  3. Add complexity step by step:
+     * **Timer/counter peripherals**
+     * **UART communication**
+     * **Interrupt handling**
+  4. Explore SoC design flow: synthesis -> **place & route** -> simulation at gate level.
+  5. Finally, relate concepts to **real-world SoCs**.
+
+<img width="500" height="600" alt="image" src="https://github.com/user-attachments/assets/5b9a29e6-00b1-4999-a089-718fbea2918c" />
+
+## 4. The Role of functional modelling before RTL and physical design stages
+Functional modelling is the **first stage** of SoC development, before RTL design and physical implementation.
+It involves writing behavioral Verilog (or SystemVerilog) code to simulate how different modules interact logically.
+
+Key purposes of functional modelling:
+* **Validate design intent**: Ensure correct logical behavior before going to hardware-level implementation.
+* **Identify integration issues early**: Catch module interface or dataflow errors.
+* **Provide a reference model**: Serve as a golden reference for later RTL and gate-level simulations.
+* **Accelerate learning**: Help visualize timing, control signals, and data exchange using waveform tools like GTKWave.
+
+In BabySoC, functional modelling helps you verify whether reset, clocking, and module-level dataflow operate correctly before proceeding to synthesis and layout stages.
+
+## 💡 5. Summary
+By understanding SoC fundamentals, we gain both theoretical insights into how real chips function.\
+BabySoC provides the perfect learning platform to bridge the gap between concepts and hands-on design flow in SoC development.
