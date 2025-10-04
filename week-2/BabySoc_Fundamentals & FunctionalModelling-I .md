@@ -1,29 +1,35 @@
 # Fundamentals and Functional Modelling Of BabySOC - I
 
-## Table of Contents
-1. [Understand the Objective](#understand-the-objective)
-2. [Introduction](#introduction)
-3. [Theory (Conceptual Understanding)](#theory-conceptual-understanding)
-   1. [What is a System-on-Chip (SoC)?](#what-is-a-system-on-chip-soc)
-      1.1 [How a System-on-Chip Works](#how-a-system-on-chip-works)
-      1.2 [Applications of System-on-Chip](#applications-of-system-on-chip)
-   2. [Components of a typical SoC](#components-of-a-typical-soc)
-   3. [Why BabySoC is a simplified model for learning SoC concepts](#why-babysoc-is-a-simplified-model-for-learning-soc-concepts)
-      3.1 [Core Modules of BabySoC](#core-modules-of-babysoc)
-      3.2 [BabySoC serves as a foundation for exploring the full SoC design flow](#babysoc-serves-as-a-foundation-for-exploring-the-full-soc-design-flow)
-   4. [The Role of functional modelling before RTL and physical design stages](#the-role-of-functional-modelling-before-rtl-and-physical-design-stages)
-   5. [Summary](#summary)
+# Table of Contents
 
-# 1️⃣ Understand the Objective
+- [Understand the Objective](#understand-the-objective)
+- [Introduction](#introduction)
+- [Theory Conceptual Understanding](#theory-conceptual-understanding)
+
+1. [What is a System-on-Chip (SoC)?](#1-what-is-a-system-on-chip-soc)
+   1.1 [How a System-on-Chip Works](#11-how-a-system-on-chip-works)
+   1.2 [Applications of System-on-Chip](#12-applications-of-system-on-chip)
+
+2. [Components of a typical SoC](#2-components-of-a-typical-soc)
+
+3. [Why BabySoC is a simplified model for learning SoC concepts](#3-why-babysoc-is-a-simplified-model-for-learning-soc-concepts)
+   3.1 [Core Modules of BabySoC](#31-core-modules-of-babysoc)
+   3.2 [BabySoC serves as a foundation for exploring the full SoC design flow](#32-babysoc-serves-as-a-foundation-for-exploring-the-full-soc-design-flow)
+
+4. [The Role of functional modelling before RTL and physical design stages](#4-the-role-of-functional-modelling-before-rtl-and-physical-design-stages)
+
+5. [Summary](#5-summary)
+
+# 1️. Understand the Objective
 * To build a clear understanding of **System-on-Chip (SoC) fundamentals**
 * The goal is to understand how various **SoC components (CPU, memory, peripherals, interconnects) work together**
 
-# 2️⃣ Introduction
+# 2️. Introduction
 A **System-on-Chip (SoC)** is an integrated circuit that combines all the core components of a **computer system** - **CPU, memory, I/O peripherals, and communication interfaces** - onto a single **silicon chip**.
 This integration enables **smaller size, higher speed, lower power, and better efficiency** compared to traditional **multi-chip systems**.
 In this **task**, we **focus on understanding SoC design fundamentals** .
 
-# 3️⃣ Theory (Conceptual Understanding) 
+# 3️. Theory (Conceptual Understanding) 
 
 ## 1. What is a System-on-Chip (SoC)? 
 A **System-on-Chip (SoC)** is a single integrated circuit (IC) that combines all the essential electronic components of a complete system onto one silicon chip.\
@@ -35,16 +41,16 @@ It typically includes a **CPU**, **memory blocks**, **input/output ports**, **pe
 * Reduced size and cost
 * Higher reliability compared to multi-chip systems
 
-  ## 1.1 How a System-on-Chip Works
-  When an SoC powers on, the following sequence happens:\
-  **1. Reset and Initialization**: The chip receives power, the reset signal ensures all components start in a known state.\
-  **2. Boot and Program Execution**: The CPU fetches instructions from memory (either on-chip ROM or external Flash).\
-  **3. Data Processing**: The CPU processes data using its ALU and registers, communicates with memory via the interconnect/bus system.\
-  **4. Peripheral Communication**: Input/output peripherals (like UART, SPI, I2C, or GPIO) allow the SoC to interact with external sensors, displays, or other chips.\
-  **5. Control and Feedback**: Clock circuits keep all modules synchronized, while control signals manage data transfer and responses among subsystems.
+### 1.1 How a System-on-Chip Works
+When an SoC powers on, the following sequence happens:\
+**1. Reset and Initialization**: The chip receives power, the reset signal ensures all components start in a known state.\
+**2. Boot and Program Execution**: The CPU fetches instructions from memory (either on-chip ROM or external Flash).\
+**3. Data Processing**: The CPU processes data using its ALU and registers, communicates with memory via the interconnect/bus system.\
+**4. Peripheral Communication**: Input/output peripherals (like UART, SPI, I2C, or GPIO) allow the SoC to interact with external sensors, displays, or other chips.\
+**5. Control and Feedback**: Clock circuits keep all modules synchronized, while control signals manage data transfer and responses among subsystems.
 
-  ## 1.2 Applications of System-on-Chip
-  SoCs are at the **heart of nearly every modern electronic device**. Some key application areas include:
+### 1.2 Applications of System-on-Chip
+SoCs are at the **heart of nearly every modern electronic device**. Some key application areas include:
 
   | **Domain**                        | **Example Devices**          | **Purpose / Functionality**                                                     |
   | --------------------------------- | ---------------------------- | ------------------------------------------------------------------------------- |
@@ -84,7 +90,7 @@ Together, they make the SoC a **complete, self-contained computing system** on a
 Unlike commercial SoCs like ARM Cortex or Intel chips, which have millions of transistors, complex cache hierarchies, multiple cores, and advanced peripherals, **BabySoC is small, modular, and easy to understand**.\
 * It is designed specifically for **learning and experimentation**, not for production use.
 
-   ## 3.1 Core Modules of BabySoC
+### 3.1 Core Modules of BabySoC
    **A. Processor Block / Controller** :
   * Usually a small RISC (Reduced Instruction Set Computer) core.
   * Executes instructions, performs arithmetic/logic operations.
@@ -108,7 +114,7 @@ Unlike commercial SoCs like ARM Cortex or Intel chips, which have millions of tr
   * Reset: Initializes system to a known state.
   * Shows the importance of timing, synchronization, and deterministic behavior in digital systems.
 
-  ## 3.2 BabySoC serves as a foundation for exploring the full SoC design flow
+### 3.2 BabySoC serves as a foundation for exploring the full SoC design flow
   1. Start with basic **RTL modules**: simple CPU, memory, LED peripheral.
   2. **Simulate** and **verify functionality**: use waveform viewers to see signals.
   3. Add complexity step by step:
