@@ -18,7 +18,7 @@
 
 4. [The Role of functional modelling before RTL and physical design stages](#4-the-role-of-functional-modelling-before-rtl-and-physical-design-stages)
 
-5. [Summary](#💡-summary)
+5. [Summary](#5-summary)
 
 # 1️⃣ Understand the Objective
 * To build a clear understanding of **System-on-Chip (SoC) fundamentals**
@@ -138,6 +138,6 @@ Key purposes of functional modelling:
 
 In BabySoC, functional modelling helps you verify whether reset, clocking, and module-level dataflow operate correctly before proceeding to synthesis and layout stages.
 
-## 💡 Summary
+## 5. Summary
 By understanding SoC fundamentals, we gain both theoretical insights into how real chips function.\
 BabySoC provides the perfect learning platform to bridge the gap between concepts and hands-on design flow in SoC development.
