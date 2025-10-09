@@ -13,6 +13,21 @@ After writing and functionally verifying a design at the **RTL (Register Transfe
 # 3️⃣ Step-by-Step execution plan for running the commands manually:
 🔹**Step 1 :** Perform Synthesis of BabySoC Design
 Use Yosys to generate the synthesized netlist from RTL.
+👉🏼Invoke yosys
 ```bash
 yosys
 ```
+👉🏼Load the Liberty Files for Synthesis
+```bash
+read_liberty -lib src/lib/sky130_fd_sc_hd__tt_025C_1v80.lib
+read_liberty -lib src/lib/avsdpll.lib
+read_liberty -lib src/lib/avsddac.lib
+```
+👉🏼 Read Verilog Files
+```bash
+read_verilog -I ~/babysoc/VSDBabySoC/src/include ~/babysoc/VSDBabySoC/src/module/rvmyth.v
+read_verilog -I ~/babysoc/VSDBabySoC/src/include ~/babysoc/VSDBabySoC/src/module/clk_gate.v
+read_verilog ~/babysoc/VSDBabySoC/src/module/vsdbabysoc.v
+```
+
+
